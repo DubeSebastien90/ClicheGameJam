@@ -171,15 +171,14 @@ function setTextCine(){
 
 function getJournal(){
 	Jscale = 0
-	rot = choose(-20,20)
-	rotDir = -sign(rot)*2
+	rot = choose(-15,15)
 	years = choose(2,3,4,5,6,7,8,9,10,11,12)
 	acc = choose(0,1,2)
 }
 
 //debug
-//screen = 5
-//nb_buttons = 0
-//button_selected = 0
-//createNewPerson()
-//setTextCine()
+screen = 5
+nb_buttons = 0
+button_selected = 0
+createNewPerson()
+setTextCine()

@@ -1,3 +1,5 @@
+press_space = keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)
+
 if (keyboard_check_pressed(vk_down)&&!waiting){
 	if button_selected < nb_buttons{
 		button_selected += 1
@@ -55,7 +57,7 @@ if screen = 3{
 	}
 }
 
-if keyboard_check_pressed(vk_space){
+if press_space{
 	if screen = 0{
 		if button_selected = 1{
 			obj_game.playSound(snd_interraction,0.2)

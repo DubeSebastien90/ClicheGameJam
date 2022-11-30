@@ -24,6 +24,7 @@ for (var i = 1; i <= nb_buttons; i++){
 	draw_set_font(fnt_pixel)
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_center)
+	draw_set_color(c_white)
 	var faceScale = 4
 	draw_text_transformed(room_width/2,50,text[button_selected],0.5,0.5,0)
 	draw_text_transformed(room_width/2,140,"Spacebar to confirm",0.5,0.5,0)
@@ -40,6 +41,7 @@ for (var i = 1; i <= nb_buttons; i++){
 	draw_set_font(fnt_pixel)
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_center)
+	draw_set_color(c_white)
 	draw_text_transformed(room_width/2,140,"Spacebar to continue",0.45,0.45,0)
 	draw_text_ext_transformed(room_width/2,room_height/2-10,"Our goal is to make you find the love of your life by letting you make contact with new people!",22,230,0.45,0.45,0)
 } else if screen = 3{
@@ -185,12 +187,11 @@ draw_rectangle(0,0,room_width,room_height,false)
 draw_set_alpha(1)
 if showJournal{
 	Jscale = lerp(Jscale,1,0.1)
-	rot += (1-Jscale)*rotDir
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white)
 	draw_text_ext_transformed(15,10,string(years) +" years later, "+arrayPersonne[nb_personnes][nb_attraits+1]+accident[acc],20,room_width+20,0.7,0.7,0)
-	draw_sprite_ext(spr_journal,acc,room_width/2,room_height/2,0.9,0.9,rot,c_white,1)
+	draw_sprite_ext(spr_journal,acc,room_width/2,room_height/2,Jscale*0.9,Jscale*0.9,rot,c_white,1)
 	draw_set_valign(fa_bottom)
 	draw_text_transformed(15,room_height-25,"Unfortunately, all good things come to an end...",0.7,0.7,0)
 	draw_text_transformed(15,room_height-5,"Press space to return on Tinda",0.7,0.7,0)
