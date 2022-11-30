@@ -126,12 +126,15 @@ if press_space{
 			}
 		}
 	} else if screen = 5{
-		if showJournal{
+		if showJournal && nb_dates != 3{
 		createNewPerson()
 		screen = 3
 		nb_buttons = 0
 		button_selected = 0
 		obj_game.playSound(snd_interraction,0.2)
+		if wantMusic{
+		audio_emitter_gain(emitterMainMusic,1)
+		}
 		showJournal = false
 		changeScene = false
 		matched = false
@@ -139,6 +142,13 @@ if press_space{
 		nb_oui = 0
 		a = 0
 		alphaC = 0
+		nb_dates += 1
+		} else{
+			if scene = 0{
+			scene += 1
+			} else{
+				game_restart()
+			}
 		}
 	}
 }
@@ -153,6 +163,7 @@ if changeScene{
 		if textCineNum = nb_cineText-1 && showJournal = false{
 			getJournal()
 			showJournal = true
+			obj_game.playSound2(snd_thunder)
 		} else if textCineNum != nb_cineText-1{
 			screen = 5
 			changeScene = false
@@ -162,4 +173,9 @@ if changeScene{
 }
 if !changeScene{
 	alphaBloc = lerp(alphaBloc,0,0.1)
+}
+if showJournal = false && screen = 5{
+	audio_emitter_gain(emitterMusic,(1-alphaBloc)*1)
+} else {
+	audio_emitter_gain(emitterMusic,0)
 }

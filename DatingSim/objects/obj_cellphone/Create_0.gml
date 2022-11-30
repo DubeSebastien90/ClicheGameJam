@@ -147,11 +147,18 @@ textCineNum = 0
 
 //cinémaqtique
 tempsHop = 400
-nb_cineText = 5
+nb_cineText = 4
 showJournal = false
 textCineNum = 0
 acc = 0
+sndPlay = false
+emitterMusic = audio_emitter_create()
+nb_dates = 0
+scene = 0
 function setTextCine(){
+	scene = 0
+	audio_emitter_gain(emitterMainMusic,0)
+	audio_play_sound_on(emitterMusic,snd_musicCine,false,1)
 	acc = 0
 	showJournal = false
 	tempsHop = 430
@@ -163,18 +170,28 @@ function setTextCine(){
 	textCine[1] = arrayPersonne[nb_personnes][nb_attraits+1] + " was very nice with me" 
 	textCine[2] = "We went to the park to walk together"
 	textCine[3] = "It was such a beautiful moment"
-	textCine[4] = "I hope we can spend our whole life together"	
-	accident[0] = " was found dead in the middle of a dark alleyway"
-	accident[1] = " got hit by a small meteor while driving"
-	accident[2] = " perrished in a tragic sinking"
+	accident[0] = " perrished in a tragic sinking"
+	accident[1] = " choked while drinking whine during your wedding"
+	accident[2] = " was found dead in the middle of a dark alleyway"
+	accident[3] = ""
+	accidentYears[0] = "5 years later"
+	accidentYears[1] = "5 years later"
+	accidentYears[2] = "2 weeks later"
+	accidentYears[3] = "Later that night, you were caught by a police officer and sent to prison"
 }
 
 function getJournal(){
 	Jscale = 0
 	rot = choose(-15,15)
-	years = choose(2,3,4,5,6,7,8,9,10,11,12)
-	acc = choose(0,1,2)
+	years = accidentYears[nb_dates]
+	acc = nb_dates
+	sndPlay = false
 }
+
+//music
+emitterMainMusic = audio_emitter_create()
+wantMusic = true
+audio_play_sound_on(emitterMainMusic,snd_music,true,0)
 
 //debug
 screen = 5
@@ -182,3 +199,5 @@ nb_buttons = 0
 button_selected = 0
 createNewPerson()
 setTextCine()
+nb_dates = 3
+
