@@ -183,3 +183,18 @@ if showJournal = false && screen = 5{
 } else {
 	audio_emitter_gain(emitterMusic,0)
 }
+
+if nb_dates = 3 && screen = 5{
+	audio_emitter_gain(emitterMusic,1)
+}
+
+if nb_dates = 3{
+	if range < 2000{
+		range  += 1
+	}
+	var lol = 0
+	if range > 1000{
+	var lol = ((range-1000)/3000) * 0.3
+	}
+	audio_emitter_pitch(emitterMusic,random_range(1-lol,1+lol))
+}

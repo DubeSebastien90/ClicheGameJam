@@ -156,11 +156,15 @@ emitterMusic = audio_emitter_create()
 nb_dates = 0
 scene = 0
 gun = false
+range = 0
 function setTextCine(){
+	range = 0
 	gun = false
 	scene = 0
 	audio_emitter_gain(emitterMainMusic,0)
-	audio_play_sound_on(emitterMusic,snd_musicCine,false,1)
+	if nb_dates!=3{
+		audio_play_sound_on(emitterMusic,snd_musicCine,false,1)
+	} else audio_play_sound_on(emitterMusic,snd_musicCine,true,1)
 	acc = 0
 	showJournal = false
 	tempsHop = 430
@@ -207,7 +211,7 @@ audio_play_sound_on(emitterMainMusic,snd_music,true,0)
 //screen = 5
 //nb_buttons = 0
 //button_selected = 0
+//nb_dates = 3
 //createNewPerson()
 //setTextCine()
-//nb_dates = 3
 

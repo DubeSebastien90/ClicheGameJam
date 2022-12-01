@@ -190,7 +190,7 @@ for (var i = 1; i <= nb_buttons; i++){
 		changeScene = true
 	} else if textCineNum = nb_cineText-1 && changeScene = false && tempsHop < 100 && nb_dates = 3 && gun = false{
 		gun = true
-		alarm[3] = 360
+		alarm[3] = 240
 		obj_game.playSound2(snd_gun_reload)
 	}
 }
@@ -232,7 +232,7 @@ if showJournal{
 			}
 			draw_set_valign(fa_top)
 			draw_text_ext_transformed(15,10,"Fortunately,the guards were easy to seduce",20,room_width+100,0.7,0.7,0)
-			draw_sprite_ext(spr_journal,acc,room_width/2,room_height/2-15,Jscale*0.9,Jscale*0.9,rot,c_white,1)
+			draw_sprite_ext(spr_journal,acc,room_width/2,room_height/2-20,Jscale*0.9,Jscale*0.9,rot,c_white,1)
 			draw_set_valign(fa_bottom)
 			draw_text_transformed(15,room_height-45,"Hehehehehe, they won't get me anymore",0.7,0.7,0)
 			draw_text_transformed(15,room_height-25,"I got surgery! New city, new me... hehehe",0.7,0.7,0)

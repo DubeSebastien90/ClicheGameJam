@@ -1,7 +1,7 @@
 function choisirNom(sexe) constructor{
 	var nom = ""
 	if(sexe = 0){
-		nb_noms = 20
+		nb_noms = 30
 		noms[0] = "Jason"
 		noms[1] = "Michael"
 		noms[2] = "George"
@@ -22,9 +22,19 @@ function choisirNom(sexe) constructor{
 		noms[17] = "Jacob"
 		noms[18] = "Noah"
 		noms[19] = "Jeremy"
+		noms[20] = "Clyde"
+		noms[21] = "Joshua"
+		noms[22] = "Doritos"
+		noms[23] = "Alfred"
+		noms[24] = "Kamran"
+		noms[25] = "Mohamed"
+		noms[26] = "Matthew"
+		noms[27] = "Creg"
+		noms[28] = "Franck"
+		noms[29] = "Samuel"
 		nom = noms[round(random_range(-0.49,nb_noms-0.51))]
 	} else{
-		nb_noms = 20
+		nb_noms = 30
 		noms[0] = "Sabrina"
 		noms[1] = "Natasha"
 		noms[2] = "Michelle"
@@ -45,6 +55,16 @@ function choisirNom(sexe) constructor{
 		noms[17] = "Amanda"
 		noms[18] = "Maddison"
 		noms[19] = "Blaire"
+		noms[20] = "Maddie"
+		noms[21] = "Kelly"
+		noms[22] = "Esther"
+		noms[23] = "Fanny"
+		noms[24] = "Coralie"
+		noms[25] = "Rose"
+		noms[26] = "Jenny"
+		noms[27] = "Emma"
+		noms[28] = "Fettuccine"
+		noms[29] = "Olivia"
 		nom = noms[round(random_range(-0.49,nb_noms-0.51))]
 	}
 	return nom
