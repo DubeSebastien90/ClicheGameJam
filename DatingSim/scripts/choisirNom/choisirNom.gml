@@ -43,7 +43,7 @@ function choisirNom(sexe) constructor{
 		noms[5] = "Ashley"
 		noms[6] = "Katty"
 		noms[7] = "Megan"
-		noms[8] = "Claire"
+		noms[8] = "Malena"
 		noms[9] = "Leah"
 		noms[10] = "Penny"
 		noms[11] = "Nancy"

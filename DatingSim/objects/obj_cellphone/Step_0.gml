@@ -143,6 +143,7 @@ if press_space{
 		a = 0
 		alphaC = 0
 		nb_dates += 1
+		rejected = false
 		} else{
 			if scene = 0 && showJournal{
 			scene += 1

@@ -116,6 +116,7 @@ function draw_corps(perso, X,Y,scale)constructor{
 }
 
 //clavardage
+rejected = false
 text_fin[1] = "Too bad for you, better luck next time"
 text_fin[2] = "Yay!! Get ready, you're going on a date!"
 text_fin[3] = "Great job! You got a nude, now you can try to find the love of your life"
@@ -153,7 +154,7 @@ textCineNum = 0
 acc = 0
 sndPlay = false
 emitterMusic = audio_emitter_create()
-nb_dates = 0
+nb_dates = 1
 scene = 0
 gun = false
 range = 0
@@ -172,23 +173,27 @@ function setTextCine(){
 	_y = 150
 	spd = 0.01
 	textCineNum = 0
-	textCine[0] = "My date went very well!"
+	textCine[0] = "My date was great!"
 	textCine[1] = arrayPersonne[nb_personnes][nb_attraits+1] + " was very nice with me" 
 	textCine[2] = "We went to the park to walk together"
 	textCine[3] = "It was such a beautiful moment"
+	textCineMid[0] = "My date went very well!"
+	textCineMid[1] = arrayPersonne[nb_personnes][nb_attraits+1] + " was very cooperative" 
+	textCineMid[2] = "We went to the park for a walk"
+	textCineMid[3] = "It was such a beautiful moment"
 	textCineFin[0] = "My date went perfectly"
 	textCineFin[1] = arrayPersonne[nb_personnes][nb_attraits+1] + " acted as planned"
 	textCineFin[2] = "We went to the park like usual"
 	textCineFin[3] = "It was such a beautiful moment..."
 	textCineFin[4] = "At least for me! Hehehe"
 	accident[0] = " perrished in a tragic sinking"
-	accident[1] = " choked while drinking whine during your wedding"
+	accident[1] = " choked while drinking wine during our wedding"
 	accident[2] = " was found dead in the middle of a dark alleyway"
 	accident[3] = ""
 	accidentYears[0] = "5 years later"
-	accidentYears[1] = "5 years later"
+	accidentYears[1] = "3 years later"
 	accidentYears[2] = "2 weeks later"
-	accidentYears[3] = "Later that night, you were caught by a police officer and sent to prison"
+	accidentYears[3] = "Later that night, I got caught by a police officer and sent to prison"
 }
 
 function getJournal(){

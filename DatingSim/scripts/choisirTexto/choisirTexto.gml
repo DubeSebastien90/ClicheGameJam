@@ -57,12 +57,14 @@ function choisirTexto(numText,textRecu) constructor{
 		}
 		if textRecu = recu0[2]{
 			texto[0] = choose("No! Ewwww","Ok lol", "Why not")
-			if (texto[0] = "No! Ewwww"){
+			if (texto[0] = "No! Ewwww" && obj_cellphone.rejected = false){
 				texto[1] = send[2][0]
 				texto[2] = send[2][1]
 				texto[3] = send[2][2]
 				texto[5] = 1
+				obj_cellphone.rejected = true
 			} else {
+				texto[0] = choose("Ok lol", "Why not")
 				texto[1] = send[2][3]
 				texto[2] = send[2][4]
 				texto[3] = send[2][5]
@@ -73,16 +75,20 @@ function choisirTexto(numText,textRecu) constructor{
 	if numText = 2{
 		if (textRecu = send[0][0] || textRecu = send[0][1] || textRecu = send[0][2] || textRecu = send[1][0] || textRecu = send[1][1] || textRecu = send[1][2] || textRecu = send[1][5]){
 			texto[0] = choose("Yeah", "Absolutely!","Hmm naaah")
-			if (texto[0] = "Yeah" || texto[0] = "Absolutely!"){
+			if (texto[0] = "Yeah" || texto[0] = "Absolutely!" || obj_cellphone.rejected = true){
 				texto[1] = "Cool! See you there!"
 				texto[2] = "YAAAASSS!"
 				texto[3] = "Ooooh yeah"
 				texto[5] = 2
+				if obj_cellphone.rejected = true{
+					texto[0] = choose("Yeah", "Absolutely!")
+				}
 			} else{
 				texto[1] = "Bye"
 				texto[2] = "Ok looser"
 				texto[3] = "Ok have a great day"
 				texto[5] = 1
+				obj_cellphone.rejected = true
 			}
 		} else if (textRecu = send[1][3] || textRecu = send[1][4]){
 			texto[0] = choose("Yeah and what?", "It's obvious")

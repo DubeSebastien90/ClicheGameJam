@@ -174,9 +174,11 @@ for (var i = 1; i <= nb_buttons; i++){
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_center)
 	draw_set_color(c_white)
-	if nb_dates != 3{
+	if nb_dates = 1{
 		draw_text_transformed(room_width/2,15,textCine[textCineNum],0.7,0.7,0)
-	} else if gun = false{
+	} else if nb_dates =2 {
+		draw_text_transformed(room_width/2,15,textCineMid[textCineNum],0.7,0.7,0)
+	}else if gun = false{
 		draw_text_transformed(room_width/2,15,textCineFin[textCineNum],0.7,0.7,0)
 	} else if gun = true{
 		draw_text_transformed(room_width/2,15,textCineFin[4],0.7,0.7,0)
@@ -222,7 +224,7 @@ if showJournal{
 			draw_tete(index,room_width/2,room_height/2+4,5)
 			draw_sprite_ext(spr_cinematique_barreaux,0,room_width/2,room_height/2,4,4,0,c_white,1)
 			draw_set_valign(fa_bottom)
-			draw_text_transformed(15,room_height-25,"News reported : Tinda Killer is finally caught",0.7,0.7,0)
+			draw_text_transformed(15,room_height-25,"News reported : Tinda Killer finally got caught",0.7,0.7,0)
 			draw_text_transformed(15,room_height-5,"Press space to continue",0.7,0.7,0)
 		} else{
 			Jscale = lerp(Jscale,1,0.1)
