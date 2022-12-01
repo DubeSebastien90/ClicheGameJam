@@ -155,7 +155,9 @@ sndPlay = false
 emitterMusic = audio_emitter_create()
 nb_dates = 0
 scene = 0
+gun = false
 function setTextCine(){
+	gun = false
 	scene = 0
 	audio_emitter_gain(emitterMainMusic,0)
 	audio_play_sound_on(emitterMusic,snd_musicCine,false,1)
@@ -170,6 +172,11 @@ function setTextCine(){
 	textCine[1] = arrayPersonne[nb_personnes][nb_attraits+1] + " was very nice with me" 
 	textCine[2] = "We went to the park to walk together"
 	textCine[3] = "It was such a beautiful moment"
+	textCineFin[0] = "My date went perfectly"
+	textCineFin[1] = arrayPersonne[nb_personnes][nb_attraits+1] + " acted as planned"
+	textCineFin[2] = "We went to the park like usual"
+	textCineFin[3] = "It was such a beautiful moment..."
+	textCineFin[4] = "At least for me! Hehehe"
 	accident[0] = " perrished in a tragic sinking"
 	accident[1] = " choked while drinking whine during your wedding"
 	accident[2] = " was found dead in the middle of a dark alleyway"
@@ -182,7 +189,10 @@ function setTextCine(){
 
 function getJournal(){
 	Jscale = 0
-	rot = choose(-15,15)
+	rot = random_range(-15,15)
+	if nb_dates = 3{
+		rot = random_range(-5,5)
+	}
 	years = accidentYears[nb_dates]
 	acc = nb_dates
 	sndPlay = false
@@ -194,10 +204,10 @@ wantMusic = true
 audio_play_sound_on(emitterMainMusic,snd_music,true,0)
 
 //debug
-screen = 5
-nb_buttons = 0
-button_selected = 0
-createNewPerson()
-setTextCine()
-nb_dates = 3
+//screen = 5
+//nb_buttons = 0
+//button_selected = 0
+//createNewPerson()
+//setTextCine()
+//nb_dates = 3
 

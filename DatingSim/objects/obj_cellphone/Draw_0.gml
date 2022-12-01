@@ -161,22 +161,37 @@ for (var i = 1; i <= nb_buttons; i++){
 } else if screen = 5{
 	var scale = 5
 	var dscale = 5 / (60/(_y-60))
+	if gun = false{
 	_y -= spd*dscale
+	} 
 	draw_sprite_ext(spr_cinematique,nb_dates,0,0,scale,scale,0,c_white,1)
 	draw_sprite_ext(spr_cinematique,nb_dates,0,0,scale,scale,0,c_grey,0.3)
 	draw_corps(index,room_width/2-(_x*dscale)/5,_y,dscale)
 	draw_corps(arrayPersonne[nb_personnes],room_width/2+(_x*dscale)/5,_y,-dscale)
+	if gun = true{
+		draw_sprite_ext(spr_gun,0,(room_width/2)-_x*dscale/5+10,_y+14,3,3,20,c_white,1)
+	}
 	draw_set_halign(fa_center)
 	draw_set_valign(fa_center)
 	draw_set_color(c_white)
-	draw_text_transformed(room_width/2,15,textCine[textCineNum],0.7,0.7,0)
+	if nb_dates != 3{
+		draw_text_transformed(room_width/2,15,textCine[textCineNum],0.7,0.7,0)
+	} else if gun = false{
+		draw_text_transformed(room_width/2,15,textCineFin[textCineNum],0.7,0.7,0)
+	} else if gun = true{
+		draw_text_transformed(room_width/2,15,textCineFin[4],0.7,0.7,0)
+	}
 	if tempsHop < 0 && textCineNum < nb_cineText-1{
 		tempsHop += 360
 		textCineNum += 1
 	}
 	tempsHop -= 1
-	if textCineNum = nb_cineText-1 && changeScene = false && tempsHop < 100{
+	if textCineNum = nb_cineText-1 && changeScene = false && tempsHop < 100 && nb_dates !=3{
 		changeScene = true
+	} else if textCineNum = nb_cineText-1 && changeScene = false && tempsHop < 100 && nb_dates = 3 && gun = false{
+		gun = true
+		alarm[3] = 360
+		obj_game.playSound2(snd_gun_reload)
 	}
 }
 
@@ -186,15 +201,15 @@ draw_set_alpha(alphaBloc)
 draw_rectangle(0,0,room_width,room_height,false)
 draw_set_alpha(1)
 if showJournal{
-	Jscale = lerp(Jscale,1,0.04)
-	if Jscale > 0.95 && sndPlay = false{
-		sndPlay = true
-		obj_game.playSound2(snd_journal)
-	}
 	draw_set_halign(fa_left)
 	draw_set_valign(fa_top)
 	draw_set_color(c_white)
 	if nb_dates != 3{
+		Jscale = lerp(Jscale,1,0.04)
+		if Jscale > 0.95 && sndPlay = false{
+			sndPlay = true
+			obj_game.playSound2(snd_journal)
+		}
 		draw_text_ext_transformed(15,10,years+", "+arrayPersonne[nb_personnes][nb_attraits+1]+accident[acc],20,room_width+20,0.7,0.7,0)
 		draw_sprite_ext(spr_journal,acc,room_width/2,room_height/2,Jscale*0.9,Jscale*0.9,rot,c_white,1)
 		draw_set_valign(fa_bottom)
@@ -204,11 +219,20 @@ if showJournal{
 		if scene = 0{
 			draw_set_valign(fa_top)
 			draw_text_ext_transformed(15,10,years,20,room_width+100,0.7,0.7,0)
+			draw_tete(index,room_width/2,room_height/2+4,5)
+			draw_sprite_ext(spr_cinematique_barreaux,0,room_width/2,room_height/2,4,4,0,c_white,1)
 			draw_set_valign(fa_bottom)
+			draw_text_transformed(15,room_height-25,"News reported : Tinda Killer is finally caught",0.7,0.7,0)
 			draw_text_transformed(15,room_height-5,"Press space to continue",0.7,0.7,0)
 		} else{
+			Jscale = lerp(Jscale,1,0.1)
+			if Jscale > 0.95 && sndPlay = false{
+				sndPlay = true
+				obj_game.playSound2(snd_journal)
+			}
 			draw_set_valign(fa_top)
-			draw_text_ext_transformed(15,10,"Fortunately,the guars were esay to seduce",20,room_width+100,0.7,0.7,0)
+			draw_text_ext_transformed(15,10,"Fortunately,the guards were easy to seduce",20,room_width+100,0.7,0.7,0)
+			draw_sprite_ext(spr_journal,acc,room_width/2,room_height/2-15,Jscale*0.9,Jscale*0.9,rot,c_white,1)
 			draw_set_valign(fa_bottom)
 			draw_text_transformed(15,room_height-45,"Hehehehehe, they won't get me anymore",0.7,0.7,0)
 			draw_text_transformed(15,room_height-25,"I got surgery! New city, new me... hehehe",0.7,0.7,0)

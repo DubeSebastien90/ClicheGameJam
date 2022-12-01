@@ -56,8 +56,8 @@ function choisirTexto(numText,textRecu) constructor{
 			}
 		}
 		if textRecu = recu0[2]{
-			texto[0] = choose("Emmm","No! Ewwww","Ok lol", "Why not")
-			if (texto[0] = "Emmm" || texto[0] = "No! Ewwww"){
+			texto[0] = choose("No! Ewwww","Ok lol", "Why not")
+			if (texto[0] = "No! Ewwww"){
 				texto[1] = send[2][0]
 				texto[2] = send[2][1]
 				texto[3] = send[2][2]
@@ -72,7 +72,7 @@ function choisirTexto(numText,textRecu) constructor{
 	}
 	if numText = 2{
 		if (textRecu = send[0][0] || textRecu = send[0][1] || textRecu = send[0][2] || textRecu = send[1][0] || textRecu = send[1][1] || textRecu = send[1][2] || textRecu = send[1][5]){
-			texto[0] = choose("Yeah", "Absolutely!","Hmm naaah", "Nope")
+			texto[0] = choose("Yeah", "Absolutely!","Hmm naaah")
 			if (texto[0] = "Yeah" || texto[0] = "Absolutely!"){
 				texto[1] = "Cool! See you there!"
 				texto[2] = "YAAAASSS!"

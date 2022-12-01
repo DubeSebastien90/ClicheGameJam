@@ -144,9 +144,11 @@ if press_space{
 		alphaC = 0
 		nb_dates += 1
 		} else{
-			if scene = 0{
+			if scene = 0 && showJournal{
 			scene += 1
-			} else{
+			obj_game.playSound(snd_interraction,0.2)
+			} else if showJournal{
+				obj_game.playSound(snd_interraction,0.2)
 				game_restart()
 			}
 		}
@@ -163,7 +165,9 @@ if changeScene{
 		if textCineNum = nb_cineText-1 && showJournal = false{
 			getJournal()
 			showJournal = true
-			obj_game.playSound2(snd_thunder)
+			if nb_dates != 3{
+				obj_game.playSound2(snd_thunder)
+			} else obj_game.playSound2(snd_gun)
 		} else if textCineNum != nb_cineText-1{
 			screen = 5
 			changeScene = false
